@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numeracy Resources</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Numeracy Resources</h1>
+        <nav>
+            <a href="index.html">Home</a> |
+            <a href="instructions.html">Instructions</a> |
+            <a href="literacy.html">Literacy</a> |
+            <a href="ict.html">ICT</a> |
+            <a href="submit.html">Submit</a> |
+            <a href="faq.html">FAQ</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Calculating and Graphing Data</h2>
+        <p>Numeracy skills are essential for recording, analysing, and interpreting your data. Here’s how you can apply these skills:</p>
+        <ul>
+            <li>Recording time and speed accurately</li>
+            <li>Using formulas to calculate speed</li>
+            <li>Graphing data to identify trends</li>
+        </ul>
+        <p>Use the <a href="data_template.xlsx">Data Template</a> to record your measurements.</p>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Year 10 Science Assessment</p>
+    </footer>
+</body>
+</html>
