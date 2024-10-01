@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICT Resources</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>ICT Resources</h1>
+        <nav>
+            <a href="index.html">Home</a> |
+            <a href="instructions.html">Instructions</a> |
+            <a href="literacy.html">Literacy</a> |
+            <a href="numeracy.html">Numeracy</a> |
+            <a href="submit.html">Submit</a> |
+            <a href="faq.html">FAQ</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Using Technology to Complete Your Assessment</h2>
+        <p>Use the following ICT skills to complete your assessment:</p>
+        <ul>
+            <li>Collecting data using digital tools</li>
+            <li>Using Excel for data entry and graphing</li>
+            <li>Conducting safe and ethical online research</li>
+        </ul>
+        <p>Access tutorials on <a href="excel_tutorial.html">using Excel</a> for data analysis.</p>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Year 10 Science Assessment</p>
+    </footer>
+</body>
+</html>
