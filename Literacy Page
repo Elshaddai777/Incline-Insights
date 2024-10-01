@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Literacy Resources</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Literacy Resources</h1>
+        <nav>
+            <a href="index.html">Home</a> |
+            <a href="instructions.html">Instructions</a> |
+            <a href="numeracy.html">Numeracy</a> |
+            <a href="ict.html">ICT</a> |
+            <a href="submit.html">Submit</a> |
+            <a href="faq.html">FAQ</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>How to Communicate Your Findings</h2>
+        <p>Effective communication is key to completing your scientific investigation. Below are some tips on how to write and present your findings clearly and concisely.</p>
+        <ul>
+            <li>Writing scientific reports</li>
+            <li>Using correct scientific terminology</li>
+            <li>Interpreting scientific texts</li>
+        </ul>
+        <p>Download our <a href="writing_guide.pdf">Scientific Writing Guide</a> for detailed instructions.</p>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Year 10 Science Assessment</p>
+    </footer>
+</body>
+</html>
