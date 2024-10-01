@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Year 10 Science Assessment</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Year 10 Science Assessment</h1>
+        <nav>
+            <a href="instructions.html">Instructions</a> |
+            <a href="literacy.html">Literacy</a> |
+            <a href="numeracy.html">Numeracy</a> |
+            <a href="ict.html">ICT</a> |
+            <a href="submit.html">Submit</a> |
+            <a href="faq.html">FAQ</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Investigating Slope and Speed</h2>
+        <p>Welcome to the Year 10 Science Assessment website. This task involves investigating the effect of slope on the speed of an object, and it requires you to apply skills in literacy, numeracy, and ICT.</p>
+
+        <section>
+            <h3>Why These Skills Matter</h3>
+            <p>This assessment not only tests your knowledge of science but also enhances your literacy, numeracy, and ICT capabilities. These skills are essential for success in the scientific world and beyond.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Year 10 Science Assessment</p>
+    </footer>
+</body>
+</html>
