@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Instructions</h1>
+        <nav>
+            <a href="index.html">Home</a> |
+            <a href="literacy.html">Literacy</a> |
+            <a href="numeracy.html">Numeracy</a> |
+            <a href="ict.html">ICT</a> |
+            <a href="submit.html">Submit</a> |
+            <a href="faq.html">FAQ</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Step-by-Step Instructions</h2>
+        <ol>
+            <li>Set up your experiment using the required materials.</li>
+            <li>Measure the time it takes for the object to travel down the slope at different angles.</li>
+            <li>Record your data in the provided tables.</li>
+            <li>Analyze your data using graphs and equations.</li>
+            <li>Write your report following the provided guidelines.</li>
+        </ol>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Year 10 Science Assessment</p>
+    </footer>
+</body>
+</html>
