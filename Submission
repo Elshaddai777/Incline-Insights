@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Your Report</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Submit Your Report</h1>
+        <nav>
+            <a href="index.html">Home</a> |
+            <a href="instructions.html">Instructions</a> |
+            <a href="literacy.html">Literacy</a> |
+            <a href="numeracy.html">Numeracy</a> |
+            <a href="ict.html">ICT</a> |
+            <a href="faq.html">FAQ</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Upload Your Completed Report</h2>
+        <form action="/submit" method="post" enctype="multipart/form-data">
+            <label for="file">Upload Report:</label>
+            <input type="file" id="file" name="file">
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Year 10 Science Assessment</p>
+    </footer>
+</body>
+</html>
