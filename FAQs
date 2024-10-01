@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>FAQ</h1>
+        <nav>
+            <a href="index.html">Home</a> |
+            <a href="instructions.html">Instructions</a> |
+            <a href="literacy.html">Literacy</a> |
+            <a href="numeracy.html">Numeracy</a> |
+            <a href="ict.html">ICT</a> |
+            <a href="submit.html">Submit</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Frequently Asked Questions</h2>
+        <p>Find answers to common questions about this assessment.</p>
+        <ul>
+            <li>How do I submit my report?</li>
+            <li>What format should my report be in?</li>
+            <li>Can I work in groups?</li>
+        </ul>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Year 10 Science Assessment</p>
+    </footer>
+</body>
+</html>
