@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import type { Editor } from "@tiptap/react";
 import {
   AlignCenterIcon,
@@ -10,21 +10,25 @@ import {
   ChevronDownIcon,
   ClearFormatIcon,
   HighlightIcon,
-  ImageIcon,
   ItalicIcon,
   LinkIcon,
   OrderedListIcon,
+  PencilIcon,
   QuoteIcon,
   RedoIcon,
   StrikeIcon,
   TableIcon,
   UnderlineIcon,
   UndoIcon,
+  UploadImageIcon,
 } from "./icons";
+import { DrawingModal } from "./DrawingModal";
+import { FONT_GROUPS } from "../fonts";
+import { readFileAsDataUrl } from "../lib/imageFiles";
 import "./Toolbar.css";
 
-const TEXT_COLORS = ["#1f2023", "#d1453a", "#c9760b", "#1f8a4c", "#3a6df0", "#8047d6"];
-const HIGHLIGHT_COLORS = ["#fff2a8", "#c8f2c2", "#c2e4ff", "#ffd0e0", "#e6d6ff"];
+const TEXT_COLORS = ["#241f19", "#b0402f", "#c9760b", "#1f8a4c", "#2f6fb0", "#6a3fb0"];
+const HIGHLIGHT_COLORS = ["#fdf0a8", "#c8f2c2", "#c2e4ff", "#ffd0e0", "#e6d6ff"];
 
 const BLOCK_OPTIONS = [
   { value: "paragraph", label: "Normal text" },
@@ -122,6 +126,9 @@ function SwatchPicker({
 }
 
 export function Toolbar({ editor }: ToolbarProps) {
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const [drawingOpen, setDrawingOpen] = useState(false);
+
   const setLink = useCallback(() => {
     if (!editor) return;
     const previous = editor.getAttributes("link").href as string | undefined;
@@ -134,16 +141,48 @@ export function Toolbar({ editor }: ToolbarProps) {
     editor.chain().focus().extendMarkRange("link").setLink({ href: url }).run();
   }, [editor]);
 
-  const addImage = useCallback(() => {
-    if (!editor) return;
-    const url = window.prompt("Image URL");
-    if (!url) return;
-    editor.chain().focus().setImage({ src: url }).run();
-  }, [editor]);
+  const handleFilesSelected = useCallback(
+    async (files: FileList | null) => {
+      if (!editor || !files || files.length === 0) return;
+      for (const file of Array.from(files)) {
+        if (!file.type.startsWith("image/")) continue;
+        const dataUrl = await readFileAsDataUrl(file);
+        // Insert an empty paragraph right after the image so the cursor has a
+        // text position to land on. Without it, an image at the end of the
+        // doc leaves a NodeSelection on itself, and the *next* inserted
+        // image silently replaces it instead of being added alongside it.
+        editor
+          .chain()
+          .focus()
+          .insertContent([
+            { type: "image", attrs: { src: dataUrl, alt: file.name } },
+            { type: "paragraph" },
+          ])
+          .run();
+      }
+    },
+    [editor],
+  );
+
+  const insertDrawing = useCallback(
+    (dataUrl: string) => {
+      if (!editor) return;
+      editor
+        .chain()
+        .focus()
+        .insertContent([
+          { type: "image", attrs: { src: dataUrl, alt: "Drawing" } },
+          { type: "paragraph" },
+        ])
+        .run();
+    },
+    [editor],
+  );
 
   if (!editor) return <div className="toolbar" aria-hidden />;
 
   const blockValue = currentBlockValue(editor);
+  const currentFont = (editor.getAttributes("textStyle").fontFamily as string | undefined) ?? "";
 
   return (
     <div className="toolbar" role="toolbar" aria-label="Formatting">
@@ -185,6 +224,29 @@ export function Toolbar({ editor }: ToolbarProps) {
             <option key={opt.value} value={opt.value}>
               {opt.label}
             </option>
+          ))}
+        </select>
+
+        <select
+          className="tb-select tb-select-font"
+          value={currentFont}
+          aria-label="Font family"
+          style={{ fontFamily: currentFont || "var(--font-doc)" }}
+          onChange={(e) => {
+            const value = e.target.value;
+            if (value === "") editor.chain().focus().unsetFontFamily().run();
+            else editor.chain().focus().setFontFamily(value).run();
+          }}
+        >
+          <option value="">Default</option>
+          {FONT_GROUPS.map((group) => (
+            <optgroup key={group.label} label={group.label}>
+              {group.fonts.map((font) => (
+                <option key={font.value} value={font.value} style={{ fontFamily: font.value }}>
+                  {font.label}
+                </option>
+              ))}
+            </optgroup>
           ))}
         </select>
       </div>
@@ -307,8 +369,11 @@ export function Toolbar({ editor }: ToolbarProps) {
         <ToolbarButton label="Insert link" active={editor.isActive("link")} onClick={setLink}>
           <LinkIcon />
         </ToolbarButton>
-        <ToolbarButton label="Insert image" onClick={addImage}>
-          <ImageIcon />
+        <ToolbarButton label="Add a picture" onClick={() => fileInputRef.current?.click()}>
+          <UploadImageIcon />
+        </ToolbarButton>
+        <ToolbarButton label="Draw something" onClick={() => setDrawingOpen(true)}>
+          <PencilIcon />
         </ToolbarButton>
         <ToolbarButton
           label="Insert table"
@@ -318,7 +383,24 @@ export function Toolbar({ editor }: ToolbarProps) {
         >
           <TableIcon />
         </ToolbarButton>
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept="image/*"
+          multiple
+          hidden
+          onChange={(e) => {
+            void handleFilesSelected(e.target.files);
+            e.target.value = "";
+          }}
+        />
       </div>
+
+      <DrawingModal
+        open={drawingOpen}
+        onClose={() => setDrawingOpen(false)}
+        onInsert={insertDrawing}
+      />
     </div>
   );
 }

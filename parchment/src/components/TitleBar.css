@@ -8,10 +8,18 @@
 }
 
 .title-bar-brand {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   font-weight: 700;
   font-size: 14px;
   color: var(--color-accent);
   letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.title-bar-brand-mark {
+  font-size: 16px;
 }
 
 .title-bar-input {
@@ -65,6 +73,6 @@
 
 .print-btn:hover {
   background: var(--color-accent-soft);
-  border-color: #cddcff;
+  border-color: var(--color-border-strong);
   color: var(--color-accent);
 }

@@ -100,14 +100,6 @@ export const LinkIcon = (p: SVGProps<SVGSVGElement>) => (
   </Svg>
 );
 
-export const ImageIcon = (p: SVGProps<SVGSVGElement>) => (
-  <Svg {...p}>
-    <rect x="3.5" y="5" width="17" height="14" rx="1.5" />
-    <circle cx="8.5" cy="10" r="1.4" />
-    <path d="m5 17 4.5-4.5a1.5 1.5 0 0 1 2.1 0L15 16m2-2.5 1.5-1.5a1.5 1.5 0 0 1 2.1 0L21 13" />
-  </Svg>
-);
-
 export const TableIcon = (p: SVGProps<SVGSVGElement>) => (
   <Svg {...p}>
     <rect x="3.5" y="4.5" width="17" height="15" rx="1.2" />
@@ -148,3 +140,20 @@ export const ClearFormatIcon = (p: SVGProps<SVGSVGElement>) => (
     <path d="M6 4h13M9.5 4l1.5 16M14.5 4 13 20M4 20h9" />
   </Svg>
 );
+
+export const UploadImageIcon = (p: SVGProps<SVGSVGElement>) => (
+  <Svg {...p}>
+    <rect x="3.5" y="5" width="17" height="14" rx="1.5" />
+    <circle cx="8.5" cy="10" r="1.4" />
+    <path d="m5 17 4.5-4.5a1.5 1.5 0 0 1 2.1 0L15 16" />
+    <path d="M17 4v5M14.5 6.5H19.5" />
+  </Svg>
+);
+
+export const PencilIcon = (p: SVGProps<SVGSVGElement>) => (
+  <Svg {...p}>
+    <path d="m14.5 5.5 4 4L8 20H4v-4z" />
+    <path d="m13 7 4 4" />
+  </Svg>
+);
+

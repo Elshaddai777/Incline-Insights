@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
-const STORAGE_KEY = "inkwell.document.v1";
+const STORAGE_KEY = "parchment.document.v1";
+const LEGACY_STORAGE_KEY = "inkwell.document.v1";
 const SAVE_DEBOUNCE_MS = 500;
 
 export interface StoredDocument {
@@ -17,7 +18,7 @@ const DEFAULT_DOCUMENT: StoredDocument = {
 
 export function loadDocument(): StoredDocument {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = localStorage.getItem(STORAGE_KEY) ?? localStorage.getItem(LEGACY_STORAGE_KEY);
     if (!raw) return DEFAULT_DOCUMENT;
     const parsed = JSON.parse(raw) as Partial<StoredDocument>;
     return {

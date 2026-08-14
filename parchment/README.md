@@ -1,4 +1,4 @@
-# Inkwell
+# Parchment
 
 A browser-based word processor combining a Word-style formatting toolbar with a Pages-style paginated document canvas.
 
@@ -9,7 +9,13 @@ A browser-based word processor combining a Word-style formatting toolbar with a 
 
 ## Features (v1)
 
-- Rich text editing: bold, italic, underline, strikethrough, text color, highlight, headings (H1-H3), block quotes, bullet/numbered lists, text alignment, links, images, tables, undo/redo
+- Rich text editing: bold, italic, underline, strikethrough, text color, highlight, headings (H1-H3), block quotes, bullet/numbered lists, text alignment, links, tables, undo/redo
+- A curated font picker (grouped Sans Serif / Serif / Monospace / Handwriting & Display, ~25 fonts via system fonts + bundled Google Fonts)
+- Easy ways to get creative:
+  - Upload one or more pictures from your device via the toolbar
+  - Drag and drop image files straight onto the page
+  - Paste an image from the clipboard
+  - Draw freehand with a built-in drawing canvas (color swatches, custom color, brush size, eraser) and insert it as a picture
 - Paginated page canvas styled as US Letter paper (8.5in x 11in, 1in margins) with page-break guide lines and a live page count
 - Editable document title
 - Autosave to `localStorage` (debounced) with a save-status indicator
@@ -21,6 +27,7 @@ A browser-based word processor combining a Word-style formatting toolbar with a 
 - Single document only; no multi-document library, folders, or cloud sync yet.
 - No `.docx` import/export yet.
 - No collaborative editing.
+- Inserted images/drawings are stored as base64 data URLs inline in the document (simple and offline-friendly, but bloats `localStorage` for image-heavy documents).
 
 ## Development
 

@@ -9,7 +9,7 @@
 
 .paper {
   position: relative;
-  background: var(--color-surface);
+  background: var(--color-paper);
   box-shadow: var(--shadow-page);
   min-height: 11in;
 }

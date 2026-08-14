@@ -61,6 +61,10 @@
   max-width: 140px;
 }
 
+.tb-select-font {
+  max-width: 170px;
+}
+
 .tb-swatch-wrap {
   position: relative;
 }

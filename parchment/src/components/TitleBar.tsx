@@ -17,7 +17,12 @@ const STATUS_LABEL: Record<SaveStatus, string> = {
 export function TitleBar({ title, onTitleChange, status, onPrint }: TitleBarProps) {
   return (
     <div className="title-bar">
-      <div className="title-bar-brand">Inkwell</div>
+      <div className="title-bar-brand">
+        <span className="title-bar-brand-mark" aria-hidden>
+          🪶
+        </span>
+        Parchment
+      </div>
       <input
         className="title-bar-input"
         value={title}

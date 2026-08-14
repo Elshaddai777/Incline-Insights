@@ -19,7 +19,13 @@ import { TitleBar } from "./components/TitleBar";
 import { Toolbar } from "./components/Toolbar";
 import { PageEditor } from "./components/PageEditor";
 import { loadDocument, useAutosaveDocument } from "./hooks/useAutosaveDocument";
+import { readFileAsDataUrl } from "./lib/imageFiles";
 import "./App.css";
+
+function insertImageAt(view: import("@tiptap/pm/view").EditorView, pos: number, src: string) {
+  const node = view.state.schema.nodes.image.create({ src });
+  view.dispatch(view.state.tr.insert(pos, node));
+}
 
 function App() {
   const initialDoc = useMemo(() => loadDocument(), []);
@@ -36,15 +42,43 @@ function App() {
       FontFamily,
       TextAlign.configure({ types: ["heading", "paragraph"] }),
       Link.configure({ openOnClick: false, autolink: true }),
-      Image,
+      Image.configure({ allowBase64: true }),
       Table.configure({ resizable: true }),
       TableRow,
       TableHeader,
       TableCell,
-      Placeholder.configure({ placeholder: "Start writing…" }),
+      Placeholder.configure({ placeholder: "Start writing, or drop in a picture…" }),
     ],
     content: initialDoc.content,
     autofocus: "end",
+    editorProps: {
+      handleDrop: (view, event, _slice, moved) => {
+        if (moved) return false;
+        const files = Array.from(event.dataTransfer?.files ?? []).filter((f) =>
+          f.type.startsWith("image/"),
+        );
+        if (files.length === 0) return false;
+        event.preventDefault();
+        const coords = view.posAtCoords({ left: event.clientX, top: event.clientY });
+        const pos = coords ? coords.pos : view.state.selection.to;
+        files.forEach((file) => {
+          readFileAsDataUrl(file).then((src) => insertImageAt(view, pos, src));
+        });
+        return true;
+      },
+      handlePaste: (view, event) => {
+        const items = Array.from(event.clipboardData?.items ?? []);
+        const imageItem = items.find((item) => item.type.startsWith("image/"));
+        if (!imageItem) return false;
+        const file = imageItem.getAsFile();
+        if (!file) return false;
+        event.preventDefault();
+        readFileAsDataUrl(file).then((src) =>
+          insertImageAt(view, view.state.selection.to, src),
+        );
+        return true;
+      },
+    },
   });
 
   useEffect(() => {
