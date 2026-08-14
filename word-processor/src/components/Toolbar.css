@@ -1,0 +1,117 @@
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+  padding: 6px 12px;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  min-height: 44px;
+}
+
+.tb-group {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.tb-sep {
+  width: 1px;
+  align-self: stretch;
+  margin: 6px 4px;
+  background: var(--color-border);
+}
+
+.tb-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--color-text);
+  border-radius: 6px;
+  padding: 6px 7px;
+  cursor: pointer;
+  line-height: 0;
+}
+
+.tb-btn:hover:not(:disabled) {
+  background: var(--color-accent-soft);
+}
+
+.tb-btn.is-active {
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+  border-color: #cddcff;
+}
+
+.tb-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.tb-select {
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: var(--color-surface);
+  padding: 6px 8px;
+  font-size: 13px;
+  color: var(--color-text);
+  cursor: pointer;
+  max-width: 140px;
+}
+
+.tb-swatch-wrap {
+  position: relative;
+}
+
+.tb-swatch-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+}
+
+.tb-swatch-popover {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 21;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  box-shadow: var(--shadow-page);
+  padding: 8px;
+  width: 150px;
+}
+
+.tb-swatch-clear {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: transparent;
+  padding: 4px 6px;
+  font-size: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 6px;
+}
+
+.tb-swatch-clear:hover {
+  background: var(--color-bg);
+}
+
+.tb-swatch-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+}
+
+.tb-swatch {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  padding: 0;
+}
