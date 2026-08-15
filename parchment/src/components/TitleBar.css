@@ -1,0 +1,78 @@
+.title-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 16px;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.title-bar-brand {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--color-accent);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.title-bar-brand-mark {
+  font-size: 16px;
+}
+
+.title-bar-input {
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 5px 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
+  background: transparent;
+  min-width: 220px;
+  flex: 0 1 380px;
+}
+
+.title-bar-input:hover {
+  border-color: var(--color-border);
+}
+
+.title-bar-input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  background: var(--color-surface);
+}
+
+.title-bar-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.save-status {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.save-status--unsaved {
+  color: var(--color-danger);
+}
+
+.print-btn {
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--color-text);
+}
+
+.print-btn:hover {
+  background: var(--color-accent-soft);
+  border-color: var(--color-border-strong);
+  color: var(--color-accent);
+}
